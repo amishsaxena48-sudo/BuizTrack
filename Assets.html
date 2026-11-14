@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BuizTrack - Assets & Liabilities Graph</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { 
+      background-color: #00CED1;
+      background-image: url('https://i.pinimg.com/736x/d0/da/0d/d0da0d9b882fefa5579beefcb24016b0.jpg'); 
+      background-size: cover;  
+      color: #f8fafc; 
+      font-family: system-ui, sans-serif; 
+    }
+    .card-custom { 
+      background-color: #1E90FF;
+      background-image: url('https://st4.depositphotos.com/3930503/19991/i/450/depositphotos_199910082-stock-photo-light-blue-gradient-background-blue.jpg'); 
+      background-size: cover; 
+      border: 1px solid #1f2937; 
+      border-radius: 12px; 
+    }
+    .form-control { 
+      background-color: #030712; 
+      border: 1px solid #374151; 
+      color: #f8fafc; 
+    }
+    .form-control:focus { 
+      background-color: #030712; 
+      border-color: #38bdf8; 
+      color: #f8fafc; 
+      box-shadow: none; 
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-4">
+    <a href="Main.html" class="btn btn-success btn-sm mb-4"><i class="bi bi-arrow-left me-1"></i> <b>Back to Dashboard</b></a>
+    <h1 class="fw-bold text-white mb-3">Assets, Liabilities & Net Worth Analytics</h1>
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="card card-custom p-4 mb-4">
+          <h3 class="fw-bold text-success mb-3">Total Assets</h3>
+          <div class="mb-3">
+            <label class="form-label medium text-dark">Machinery & Equipment</label>
+            <input type="number" class="form-control asset-in" value="" oninput="calcNetWorth()">
+          </div>
+          <div class="mb-3">
+            <label class="form-label medium text-dark">Cash & Bank Reserves</label>
+            <input type="number" class="form-control asset-in" value="" oninput="calcNetWorth()">
+          </div>
+        </div>
+        <div class="card card-custom p-4">
+          <h3 class="fw-bold text-danger mb-3">Total Liabilities</h3>
+          <div class="mb-3">
+            <label class="form-label medium text-dark">Business Loans</label>
+            <input type="number" class="form-control lib-in" value="" oninput="calcNetWorth()">
+          </div>
+          <div class="mb-3">
+            <label class="form-label medium text-dark">Accounts Payable</label>
+            <input type="number" class="form-control lib-in" value="" oninput="calcNetWorth()">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card card-custom p-4 h-100 d-flex flex-column justify-content-center align-items-center">
+          <h3 class="fw-bold text-danger mb-3">Financial Graph Visualizer</h3>
+          <div style="width: 100%; max-width: 450px; height: 320px;">
+            <canvas id="financeChart"></canvas>
+          </div>
+          <div class="text-center mt-3">
+            <medium class="fw-bold text-dark">Net Worth: <span class="fw-bold text-success" id="netWorthOut"></span></medium>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let ctx = document.getElementById('financeChart').getContext('2d');
+    let financeChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Assets', 'Liabilities', 'Net Worth'],
+        datasets: [{
+          label: 'Amount',
+          data: [400000, 150000, 250000],
+          backgroundColor: ['green', 'red', 'blue'],
+          borderRadius: 8,
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          x: { ticks: { color: 'red' }, grid: { display: false } },
+          y: { ticks: { color: 'black' }, grid: { color: '#1f2937' } }
+        }
+      }
+    });
+
+    function calcNetWorth() {
+      let assets = 0, libs = 0;
+      document.querySelectorAll('.asset-in').forEach(i => assets += parseFloat(i.value) || 0);
+      document.querySelectorAll('.lib-in').forEach(i => libs += parseFloat(i.value) || 0);
+      let net = assets - libs;
+      document.getElementById('netWorthOut').innerText = net.toLocaleString();
+
+      financeChart.data.datasets[0].data = [assets, libs, net];
+      financeChart.update();
+    }
+    calcNetWorth();
+  </script>
+</body>
+</html>

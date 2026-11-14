@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BuizTrack - Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <style>
+    body { 
+      background: linear-gradient(rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.65)),
+         url('https://i.pinimg.com/originals/0b/bf/ba/0bbfba91e853192810d5292af38ece88.jpg'); 
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      font-family: system-ui, -apple-system, sans-serif; 
+    }
+    .card-custom { 
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6); 
+      border-radius: 16px; 
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
+    .card-custom h3 {
+      color: #0f172a;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .card-custom p, .card-custom .form-label {
+      color: #334155;
+      font-weight: 600;
+    }
+    .form-control { 
+      background-color: #0f172a; 
+      border: 1px solid #334155; 
+      color: #f8fafc; 
+      padding: 0.65rem 0.9rem;
+      border-radius: 8px;
+    }
+    .form-control::placeholder {
+      color: #94a3b8;
+      opacity: 1;
+    }
+    .form-control:focus { 
+      background-color: #0f172a; 
+      border-color: #2563eb; 
+      color: #f8fafc; 
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25); 
+    }
+    .btn-login {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      border: none;
+      padding: 0.7rem;
+      border-radius: 8px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn-login:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 15px rgba(37, 99, 235, 0.35);
+    }
+    #loadingOverlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(3, 7, 18, 0.88);
+      backdrop-filter: blur(8px);
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="loadingOverlay">
+    <div class="spinner-border text-info mb-3" style="width: 3.5rem; height: 3.5rem;" role="status"></div>
+    <h5 class="fw-bold text-white mb-1">Loading BuizTrack Dashboard...</h5>
+    <p class="text-info small mb-0">Track Your Profit</p>
+  </div>
+
+  <div class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-md-5 col-lg-4">
+        <div class="card card-custom p-4 p-md-5">
+          <h3 class="text-center text-primary large me-2">BuizTrack</h3>
+          <p class="text-center small text-muted mb-4">Track Your Profit</p>
+          <form onsubmit="handleLogin(event)">
+            <div class="mb-3">
+              <label class="form-label small">Business / Enterprise Name</label>
+              <input type="text" class="form-control" placeholder="Enter your Enterprise Name" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small">Email Address</label>
+              <input type="email" class="form-control" placeholder="user@business.com" required>
+            </div>
+            <div class="mb-4">
+              <label class="form-label small">Password</label>
+              <input type="password" class="form-control" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-login w-100 fw-bold text-white">Login to Dashboard</button>
+          </form>
+          <div class="text-center mt-4">
+            <small class="text-secondary">Don't have an account? <a href="SignupB.html" class="fw-bold text-primary text-decoration-none">Sign Up</a></small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();   
+      document.getElementById('loadingOverlay').style.display = 'flex';
+      setTimeout(() => {
+        window.location.href = 'Main.html';
+      }, 1200);
+    }
+  </script>
+</body>
+</html>
