@@ -19,12 +19,3 @@
 * **Hosting:** Live demo available at [BuizTrack Live](https://buiztrackp.edgeone.dev)
 
 ---
-
-## 📦 Quick Start & Deployment (Docker)
-
-To run BuizTrack locally or deploy it on a cloud server (like Vultr):
-
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/YOUR_USERNAME/buiztrack.git](https://github.com/YOUR_USERNAME/buiztrack.git)
-   cd buiztrack
