@@ -1,14 +1,3 @@
-Arre haan! Tech stack ko ekdum prominent aur detailed section mein highlight karna zaroori hai taaki judges/visitors ko ek nazar mein pata chal jaye ki kaun-kaun si technologies use hui hain.
-
-Yeh lo, ab README aur LinkedIn dono ke liye **Tech Stack** ko ekdum badhiya se structured karke update kar diya hai:
-
----
-
-### 1. Updated `README.md` (GitHub ke liye)
-
-Apni repository ki `README.md` file mein yeh poora updated content daal de:
-
-```markdown
 # 🚀 BuizTrack
 
 > A modern, lightweight web application designed to streamline business tracking, operations, and management workflows efficiently.
