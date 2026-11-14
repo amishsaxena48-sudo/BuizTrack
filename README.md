@@ -1,4 +1,4 @@
-# 💎 BuizTrack
+#  BuizTrack
 
 > A high-performance, lightweight financial management SaaS platform built for businesses, entrepreneurs, and global enterprises.
 
