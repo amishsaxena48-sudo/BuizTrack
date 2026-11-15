@@ -2,7 +2,7 @@
 
 > A modern, lightweight web application designed to streamline business tracking, operations, and management workflows efficiently.
 
-🔗 **Live Demo:** http://139.84.175.156
+🔗 **Live Demo:** http://139.84.175.156 [Copy and Paste in your Browser] 
 
 ---
 
